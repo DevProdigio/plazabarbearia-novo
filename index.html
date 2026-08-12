@@ -7,7 +7,7 @@
 <meta name="description" content="Plaza Barbearia. Tradição, sofisticação e estilo desde 2015. Duas unidades em Petrolina. Agende seu horário.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0c0b09;
@@ -237,14 +237,14 @@ nav.mainnav a.active::after{width:100%;}
     <div class="hero-reels reveal-stagger">
       <div class="reel-card reel-1">
         <div class="reel-frame">
-          <img src="https://plazabarbearia.com/imagens/barba_tradicional2.webp" alt="Corte e barba Plaza Barbearia">
+          <img src="" alt="Corte e barba Plaza Barbearia" loading="eager" fetchpriority="high" decoding="async" width="500" height="667">
           <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <span class="reel-tag">Vídeo 01 — Vários takes de resultado</span>
       </div>
       <div class="reel-card reel-2">
         <div class="reel-frame">
-          <img src="https://plazabarbearia.com/imagens/quimica_capilar.webp" alt="Química capilar Plaza Barbearia">
+          <img src="" alt="Química capilar Plaza Barbearia" loading="eager" decoding="async" width="500" height="667">
           <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <span class="reel-tag">Vídeo 02 — Vários takes de resultado</span>
@@ -397,8 +397,10 @@ nav.mainnav a.active::after{width:100%;}
 <section id="sobre" class="sobre">
   <div class="wrap sobre-grid">
     <div class="sobre-images reveal">
-      <div class="img-a"><img src="https://plazabarbearia.com/imagens/unidade1-nova.jpg" alt="Fachada Unidade Integração Plaza Barbearia"></div>
-      <div class="img-b"><img src="https://plazabarbearia.com/imagens/unidade2.webp" alt="Fachada Unidade Villarejo Plaza Barbearia"></div>
+      <div class="sobre-photos">
+        <div class="img-a"><img src="" alt="Fachada Unidade Integração Plaza Barbearia" loading="lazy" decoding="async" width="700" height="600"></div>
+        <div class="img-b"><img src="" alt="Fachada Unidade Villarejo Plaza Barbearia" loading="lazy" decoding="async" width="600" height="500"></div>
+      </div>
       <div class="img-badge serif">Desde<br><b>2015</b></div>
     </div>
     <div class="sobre-copy">
@@ -414,18 +416,19 @@ nav.mainnav a.active::after{width:100%;}
 <style>
 .sobre{background:var(--ivory); padding:140px 0; overflow:hidden;}
 .sobre-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:80px; align-items:center;}
-.sobre-images{position:relative; height:520px;}
-.img-a{position:absolute; left:0; top:0; width:64%; height:78%; border-radius:4px; overflow:hidden; box-shadow:var(--shadow-lg);}
-.img-b{position:absolute; right:0; bottom:0; width:52%; height:56%; border-radius:4px; overflow:hidden; box-shadow:var(--shadow-lg); border:6px solid var(--ivory);}
+.sobre-images{position:relative;}
+.sobre-photos{display:flex; gap:20px;}
+.img-a, .img-b{flex:1 1 0; aspect-ratio:3/4; border-radius:4px; overflow:hidden; box-shadow:var(--shadow-lg);}
 .img-a img, .img-b img{width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease);}
-.sobre-images:hover img{transform:scale(1.05);}
+.sobre-photos:hover img{transform:scale(1.05);}
 .img-badge{
-  position:absolute; top:14%; right:-6px;
+  position:absolute; top:-18px; right:20px;
   background:var(--ink); color:var(--ivory);
-  width:112px; height:112px; border-radius:50%;
+  width:104px; height:104px; border-radius:50%;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   font-size:12px; letter-spacing:.05em; text-align:center; line-height:1.3;
   box-shadow:var(--shadow-lg);
+  border:4px solid var(--ivory);
 }
 .img-badge b{font-size:22px; color:var(--brass-light); font-weight:500;}
 
@@ -440,7 +443,12 @@ nav.mainnav a.active::after{width:100%;}
 
 @media(max-width:960px){
   .sobre-grid{grid-template-columns:1fr; gap:60px;}
-  .sobre-images{height:380px;}
+}
+@media(max-width:520px){
+  .sobre-photos{gap:12px;}
+  .img-a, .img-b{aspect-ratio:3/4.4;}
+  .img-badge{width:84px; height:84px; font-size:10.5px; top:-14px; right:12px;}
+  .img-badge b{font-size:18px;}
 }
 </style>
 
@@ -457,43 +465,43 @@ nav.mainnav a.active::after{width:100%;}
 
     <div class="serv-grid reveal-stagger">
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/corte_cabelo_adulto.webp" alt="Corte Adulto"></div>
+        <div class="serv-img"><img src="" alt="Corte Adulto" width="56" height="56"></div>
         <h3>Corte Adulto</h3><p>Estilos modernos e clássicos para adultos.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/corte_cabelo_infantil.webp" alt="Corte Infantil"></div>
+        <div class="serv-img"><img src="" alt="Corte Infantil" width="56" height="56"></div>
         <h3>Corte Infantil</h3><p>Atendimento especial para os pequenos.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/barba_tradicional2.webp" alt="Barba Tradicional"></div>
+        <div class="serv-img"><img src="" alt="Barba Tradicional" width="56" height="56"></div>
         <h3>Barba Tradicional</h3><p>Barba feita com técnica e cuidado profissional.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/quimica_capilar.webp" alt="Química Capilar"></div>
+        <div class="serv-img"><img src="" alt="Química Capilar" width="56" height="56"></div>
         <h3>Química Capilar</h3><p>Transforme seu visual com nossos tratamentos químicos.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/manicure.jpg" alt="Manicure e Pedicure"></div>
+        <div class="serv-img"><img src="" alt="Manicure e Pedicure" width="56" height="56"></div>
         <h3>Manicure e Pedicure</h3><p>Cuidados completos para mãos e pés.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/barba-terapia.jpg" alt="Barboterapia"></div>
+        <div class="serv-img"><img src="" alt="Barboterapia" width="56" height="56"></div>
         <h3>Barboterapia</h3><p>Tratamento completo para barba e relaxamento.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/limpeza_pele.jpg" alt="Limpeza de Pele"></div>
+        <div class="serv-img"><img src="" alt="Limpeza de Pele" width="56" height="56"></div>
         <h3>Limpeza de Pele</h3><p>Tratamento completo para limpeza e rejuvenescimento.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/epilacao_nariz.jpg" alt="Epilação de Nariz e Orelha"></div>
+        <div class="serv-img"><img src="" alt="Epilação de Nariz e Orelha" width="56" height="56"></div>
         <h3>Epilação de Nariz e Orelha</h3><p>Remoção de pelos indesejados com cuidado.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/sobrancelha.jpg" alt="Sobrancelha"></div>
+        <div class="serv-img"><img src="" alt="Sobrancelha" width="56" height="56"></div>
         <h3>Sobrancelha</h3><p>Sobrancelhas bem definidas e alinhadas.</p>
       </div>
       <div class="serv-card">
-        <div class="serv-img"><img src="assets/serviços/hidratacao_escova.jpg" alt="Hidratação e Escova"></div>
+        <div class="serv-img"><img src="" alt="Hidratação e Escova" width="56" height="56"></div>
         <h3>Hidratação e Escova</h3><p>Hidratação profunda e finalização impecável.</p>
       </div>
     </div>
@@ -541,15 +549,15 @@ nav.mainnav a.active::after{width:100%;}
 
   <div class="carousel espaco-carousel reveal" data-autoplay="5000">
     <div class="carousel-track">
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco1.webp" alt="Recepção Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco2.webp" alt="Sala de espera Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco3.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco4.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco5.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco6.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco7.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco8.webp" alt="Ambiente interno Plaza Barbearia"></div>
-      <div class="carousel-slide"><img src="https://plazabarbearia.com/imagens/espaco9.webp" alt="Ambiente interno Plaza Barbearia"></div>
+      <div class="carousel-slide"><img src="" alt="Recepção Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Sala de espera Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src=" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
     </div>
     <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
     <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -604,29 +612,37 @@ nav.mainnav a.active::after{width:100%;}
     <p class="sobre-text center reveal">Apaixonados por transformar o seu visual e proporcionar uma experiência única. Liderados por quem entende do assunto.</p>
   </div>
 
-  <div class="carousel team-carousel reveal" data-autoplay="4500">
-    <div class="carousel-track team-track">
-      <div class="carousel-slide team-slide">
-        <div class="team-card active">
-          <div class="team-photo"><span class="serif">CF</span></div>
-          <h3 class="serif">Ciro Fraga</h3><p>Fundador</p>
-        </div>
+  <div class="wrap">
+    <div class="team-grid reveal-stagger">
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">CF</span></div>
+        <h3 class="serif">Ciro Fraga</h3><p>Fundador</p>
       </div>
-      <div class="carousel-slide team-slide">
-        <div class="team-card">
-          <div class="team-photo"><span class="serif">AF</span></div>
-          <h3 class="serif">Andreia Fraga</h3><p>Gerente</p>
-        </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">AF</span></div>
+        <h3 class="serif">Andreia Fraga</h3><p>Gerente</p>
       </div>
-      <div class="carousel-slide team-slide">
-        <div class="team-card">
-          <div class="team-photo"><span class="serif">CR</span></div>
-          <h3 class="serif">Cleiton Rodrigues</h3><p>Barbeiro</p>
-        </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">CR</span></div>
+        <h3 class="serif">Cleiton Rodrigues</h3><p>Barbeiro</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">DA</span></div>
+        <h3 class="serif">Diego Almeida</h3><p>Barbeiro Sênior</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">RS</span></div>
+        <h3 class="serif">Rodrigo Silva</h3><p>Barbeiro</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">FC</span></div>
+        <h3 class="serif">Fabiana Costa</h3><p>Manicure</p>
+      </div>
+      <div class="team-card">
+        <div class="team-photo"><span class="serif">JP</span></div>
+        <h3 class="serif">Juliana Pereira</h3><p>Esteticista</p>
       </div>
     </div>
-    <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
 </section>
 
@@ -689,15 +705,16 @@ p.center{max-width:520px;}
 .equipe .eyebrow::before{display:none;}
 .equipe .sec-title{max-width:600px; margin-left:auto; margin-right:auto;}
 
-.team-carousel{max-width:760px;}
-.team-carousel .carousel-viewport{aspect-ratio:auto; height:auto; box-shadow:none; background:none;}
-.team-slide{display:flex; justify-content:center; padding:20px 10px 10px;}
-.team-card{
-  display:inline-flex; flex-direction:column; align-items:center; gap:6px;
-  padding:40px 50px; border:1px solid var(--line-on-dark); border-radius:8px;
-  transition:border-color .4s ease;
+.team-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  max-width:980px; margin:56px auto 0;
 }
-.team-card.active{border-color:var(--brass);}
+.team-card{
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  padding:40px 30px; border:1px solid var(--line-on-dark); border-radius:8px;
+  transition:border-color .4s ease, transform .4s var(--ease);
+}
+.team-card:hover{border-color:var(--brass); transform:translateY(-4px);}
 .team-photo{
   width:120px; height:120px; border-radius:50%; margin-bottom:18px;
   background:var(--ink-2); border:1px solid var(--brass);
@@ -706,8 +723,14 @@ p.center{max-width:520px;}
 .team-photo span{font-size:34px; color:var(--brass-light); font-weight:500;}
 .team-card h3{font-size:20px; font-weight:500; color:var(--brass-light); margin-bottom:2px;}
 .team-card p{font-size:13px; color:var(--bone-dim); letter-spacing:.04em;}
-.team-carousel .car-btn.prev{left:-10px;} .team-carousel .car-btn.next{right:-10px;}
-@media(max-width:700px){.team-carousel .car-btn.prev{left:-4px;} .team-carousel .car-btn.next{right:-4px;}}
+
+@media(max-width:860px){
+  .team-grid{grid-template-columns:repeat(2,1fr); max-width:600px;}
+}
+@media(max-width:520px){
+  .team-grid{grid-template-columns:1fr; max-width:340px; gap:20px;}
+  .team-card{padding:32px 24px;}
+}
 
 .depoimentos{background:var(--ink-2); padding:110px 0 130px;}
 .dep-head{display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:60px; flex-wrap:wrap;}
@@ -816,8 +839,11 @@ p.center{max-width:520px;}
 
   <div class="wrap loc-grid reveal-stagger">
     <div class="loc-card">
-      <div class="loc-map">
-        <iframe src="https://www.google.com/maps?q=-9.389634,-40.502684&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Unidade Integração"></iframe>
+      <div class="loc-map" data-map-src="https://www.google.com/maps?q=-9.389634,-40.502684&amp;z=16&amp;output=embed" data-map-title="Mapa Unidade Integração">
+        <button type="button" class="map-load-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Carregar mapa</span>
+        </button>
       </div>
       <div class="loc-info">
         <h3 class="serif">Unidade 1 — Integração</h3>
@@ -831,8 +857,11 @@ p.center{max-width:520px;}
     </div>
 
     <div class="loc-card">
-      <div class="loc-map">
-        <iframe src="https://www.google.com/maps?q=Av.+Cardoso+de+S%C3%A1,+1155,+Petrolina+-+PE&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa Unidade Villarejo"></iframe>
+      <div class="loc-map" data-map-src="https://www.google.com/maps?q=Av.+Cardoso+de+S%C3%A1,+1155,+Petrolina+-+PE&amp;z=16&amp;output=embed" data-map-title="Mapa Unidade Villarejo">
+        <button type="button" class="map-load-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Carregar mapa</span>
+        </button>
       </div>
       <div class="loc-info">
         <h3 class="serif">Unidade 2 — Villarejo (Orla)</h3>
@@ -898,8 +927,17 @@ p.center{max-width:520px;}
 .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:56px;}
 .loc-card{border:1px solid var(--line-on-light); border-radius:6px; overflow:hidden; background:#fff; transition:transform .5s var(--ease), box-shadow .5s var(--ease);}
 .loc-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg);}
-.loc-map{aspect-ratio:16/9; filter:grayscale(0.35) contrast(1.05);}
+.loc-map{aspect-ratio:16/9; filter:grayscale(0.35) contrast(1.05); background:var(--ivory-dim);}
 .loc-map iframe{width:100%; height:100%; border:0;}
+.map-load-btn{
+  width:100%; height:100%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  background:var(--ivory-dim); color:var(--ink);
+  font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  transition:background .3s ease;
+}
+.map-load-btn svg{width:30px; height:30px; color:var(--brass);}
+.map-load-btn:hover{background:var(--bone);}
 .loc-info{padding:30px 30px 34px;}
 .loc-info h3{font-size:20px; font-weight:500; margin-bottom:10px;}
 .loc-info p{font-size:14px; color:#5a554c; line-height:1.6; margin-bottom:4px;}
@@ -920,6 +958,31 @@ p.center{max-width:520px;}
 .footer-bottom a{color:var(--brass-light);}
 
 @media(max-width:820px){.footer-grid{grid-template-columns:1fr 1fr; gap:40px;} .footer-brand{grid-column:1/-1;}}
+</style>
+
+<!-- ================= AJUSTES DE RESPONSIVIDADE MOBILE ================= -->
+<style>
+@media(max-width:640px){
+  .sobre, .servicos, .espaco, .equipe, .depoimentos, .founder, .social, .localizacao{
+    padding-top:80px; padding-bottom:80px;
+  }
+  .sec-head{margin-bottom:40px;}
+  .founder-photo-inner{width:130px; height:130px;}
+  .founder-photo-inner span{font-size:36px;}
+  .founder-copy blockquote{margin:14px 0 20px;}
+  .team-card{padding:32px 24px;}
+  .team-photo{width:96px; height:96px;}
+  .dep-card{padding:30px 24px; min-height:auto;}
+  .social-wrap{gap:24px;}
+  .social-link{padding:13px 20px; font-size:12px;}
+}
+@media(max-width:420px){
+  .hero-reels{gap:10px;}
+  .reel-card{width:42vw;}
+  .hero-actions .btn, .loc-actions .btn, .header-actions .btn-brass{padding:14px 20px; font-size:12px;}
+  .founder-photo-inner{width:110px; height:110px;}
+  .team-card{padding:26px 16px;}
+}
 </style>
 
 <script>
@@ -1046,11 +1109,6 @@ p.center{max-width:520px;}
       index = (i + slides.length) % slides.length;
       track.style.transform = `translateX(-${index * (100/slides.length)}%)`;
       dots.forEach((d, di) => d.classList.toggle('active', di === index));
-      // team card active state
-      root.querySelectorAll('.team-card').forEach(c => c.classList.remove('active'));
-      const activeSlide = slides[index];
-      const tc = activeSlide.querySelector && activeSlide.querySelector('.team-card');
-      if(tc) tc.classList.add('active');
     }
     next && next.addEventListener('click', () => { go(index+1); resetTimer(); });
     prev && prev.addEventListener('click', () => { go(index-1); resetTimer(); });
@@ -1076,6 +1134,20 @@ p.center{max-width:520px;}
     slides.forEach(s => s.style.width = (100/slides.length) + '%');
   }
   document.querySelectorAll('.carousel').forEach(makeCarousel);
+
+  /* ---------- Mapas sob demanda (evita carregar o Google Maps de cara) ---------- */
+  document.querySelectorAll('.map-load-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const holder = btn.parentElement;
+      const iframe = document.createElement('iframe');
+      iframe.src = holder.dataset.mapSrc;
+      iframe.title = holder.dataset.mapTitle;
+      iframe.loading = 'lazy';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      holder.innerHTML = '';
+      holder.appendChild(iframe);
+    });
+  });
 
 })();
 </script>
