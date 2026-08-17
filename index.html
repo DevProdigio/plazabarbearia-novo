@@ -136,7 +136,7 @@ header.scrolled{
 header.hide{transform:translateY(-100%);}
 header .wrap{display:flex; align-items:center; justify-content:space-between;}
 .brand{display:flex; align-items:center; gap:12px;}
-.brand svg{width:36px; height:36px; flex-shrink:0;}
+.brand-logo{width:36px; height:36px; flex-shrink:0; object-fit:contain; transition:opacity .3s ease;}
 .brand-text{display:flex; flex-direction:column; line-height:1;}
 .brand-text b{
   font-family:'Fraunces',serif; font-weight:600; font-size:19px; letter-spacing:0.03em;
@@ -189,13 +189,8 @@ nav.mainnav a.active::after{width:100%;}
 <header id="siteHeader">
   <div class="wrap">
     <a href="#inicio" class="brand">
-      <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 2C34 2 12 8 4 12v46c0 34 24 52 46 60 22-8 46-26 46-60V12C88 8 66 2 50 2Z" stroke="var(--ivory)" stroke-width="2.5"/>
-        <path d="M28 42c6-10 14-14 22-14s16 4 22 14" stroke="var(--brass)" stroke-width="2" stroke-linecap="round"/>
-        <ellipse cx="50" cy="34" rx="14" ry="9" fill="var(--ivory)"/>
-        <path d="M34 34c2-10 8-16 16-16s14 6 16 16" fill="var(--ivory)"/>
-        <path d="M32 62c2-6 8-10 18-10s16 4 18 10c1 8-4 14-8 20-3 4-6 6-10 6s-7-2-10-6c-4-6-9-12-8-20Z" fill="var(--ivory)"/>
-      </svg>
+      <!-- LOGO: substitua o src abaixo pelo arquivo real da logo (ex: assets/images/logo-plaza.png ou .svg) -->
+      <img class="brand-logo" src="assets/logo.png" alt="Plaza Barbearia" width="44" height="44" onerror="this.style.opacity=0">
       <span class="brand-text"><b>Plaza</b><span>BARBEARIA</span></span>
     </a>
 
@@ -221,14 +216,9 @@ nav.mainnav a.active::after{width:100%;}
   <div class="hero-bg"></div>
   <div class="hero-noise"></div>
   <div class="wrap hero-stack">
-    <div class="hero-crest">
-      <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" id="crestDraw">
-        <path class="draw" d="M50 2C34 2 12 8 4 12v46c0 34 24 52 46 60 22-8 46-26 46-60V12C88 8 66 2 50 2Z" stroke="var(--brass)" stroke-width="2"/>
-        <path class="draw" d="M28 42c6-10 14-14 22-14s16 4 22 14" stroke="var(--ivory)" stroke-width="1.6" stroke-linecap="round"/>
-        <ellipse class="draw-fill" cx="50" cy="34" rx="14" ry="9"/>
-        <path class="draw-fill" d="M34 34c2-10 8-16 16-16s14 6 16 16"/>
-        <path class="draw-fill" d="M32 62c2-6 8-10 18-10s16 4 18 10c1 8-4 14-8 20-3 4-6 6-10 6s-7-2-10-6c-4-6-9-12-8-20Z"/>
-      </svg>
+    <div class="hero-logo-wrap">
+      <!-- LOGO: mesmo arquivo da logo usada no header -->
+      <img class="hero-logo" src="assets/logo.png" alt="Plaza Barbearia" width="88" height="88" onerror="this.parentElement.style.display='none'">
     </div>
 
     <p class="eyebrow center reveal">Petrolina · Desde 2015</p>
@@ -237,15 +227,21 @@ nav.mainnav a.active::after{width:100%;}
     <div class="hero-reels reveal-stagger">
       <div class="reel-card reel-1">
         <div class="reel-frame">
-          <img src="" alt="Corte e barba Plaza Barbearia" loading="eager" fetchpriority="high" decoding="async" width="500" height="667">
-          <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          <!-- VÍDEO 1: caminho já configurado para assets/videos/plaza1s -->
+          <video class="reel-video" muted loop playsinline preload="metadata" width="500" height="667" poster="">
+            <source src="assets/videos/plaza1s.mp4" type="video/mp4">
+          </video>
+          <div class="reel-play" role="button" aria-label="Reproduzir vídeo 1" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <span class="reel-tag">Vídeo 01 — Vários takes de resultado</span>
       </div>
       <div class="reel-card reel-2">
         <div class="reel-frame">
-          <img src="" alt="Química capilar Plaza Barbearia" loading="eager" decoding="async" width="500" height="667">
-          <div class="reel-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+          <!-- VÍDEO 2: caminho já configurado para assets/videos/plaza2s -->
+          <video class="reel-video" muted loop playsinline preload="metadata" width="500" height="667" poster="">
+            <source src="assets/videos/plaza2s.mp4" type="video/mp4">
+          </video>
+          <div class="reel-play" role="button" aria-label="Reproduzir vídeo 2" tabindex="0"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
         </div>
         <span class="reel-tag">Vídeo 02 — Vários takes de resultado</span>
       </div>
@@ -307,21 +303,16 @@ nav.mainnav a.active::after{width:100%;}
   display:flex; flex-direction:column; align-items:center; text-align:center;
   gap:16px;
 }
-.hero-crest{width:44px; opacity:.9;}
-.hero-crest svg{width:100%; height:auto;}
-.hero-crest .draw{
-  fill:none;
-  stroke-dasharray:400;
-  stroke-dashoffset:400;
-  animation:drawLine 2.2s var(--ease) forwards .2s;
-}
-.hero-crest .draw-fill{
-  fill:var(--ivory);
+.hero-logo-wrap{
+  width:clamp(64px,7vw,88px);
   opacity:0;
-  animation:fadeInFill 1s ease forwards 1.9s;
+  animation:heroLogoIn 1s var(--ease) forwards .2s;
 }
-@keyframes drawLine{to{stroke-dashoffset:0;}}
-@keyframes fadeInFill{to{opacity:1;}}
+.hero-logo-wrap img{width:100%; height:auto; object-fit:contain;}
+@keyframes heroLogoIn{
+  from{opacity:0; transform:translateY(-10px) scale(.92);}
+  to{opacity:1; transform:translateY(0) scale(1);}
+}
 .eyebrow.center{justify-content:center;}
 .eyebrow.center::before{display:none;}
 
@@ -346,7 +337,7 @@ nav.mainnav a.active::after{width:100%;}
   margin:8px 0 4px;
 }
 .reel-card{
-  width:clamp(150px,20vw,250px);
+  width:clamp(190px,26vw,320px);
   border-radius:6px; overflow:hidden;
   box-shadow:var(--shadow-lg);
   background:var(--ink-2);
@@ -355,19 +346,28 @@ nav.mainnav a.active::after{width:100%;}
 }
 .reel-2{animation-delay:1.2s;}
 @keyframes floatCard{0%,100%{translate:0 0;}50%{translate:0 -8px;}}
-.reel-frame{position:relative; aspect-ratio:3/4; overflow:hidden;}
-.reel-frame img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease);}
+.reel-frame{position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--ink-3);}
+.reel-frame img, .reel-frame video{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease);}
 .reel-card:hover{transform:translateY(-4px);}
-.reel-card:hover .reel-frame img{transform:scale(1.08);}
+.reel-card:hover .reel-frame img, .reel-card:hover .reel-frame video{transform:scale(1.08);}
 .reel-play{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   background:linear-gradient(0deg, rgba(12,11,9,0.55), rgba(12,11,9,0.05) 45%);
+  opacity:1; transition:opacity .35s ease, background .35s ease;
+  cursor:pointer;
 }
+.reel-play.playing{
+  background:linear-gradient(0deg, rgba(12,11,9,0.32), rgba(12,11,9,0) 45%);
+  opacity:0;
+}
+.reel-frame:hover .reel-play.playing, .reel-play.playing:focus-visible{opacity:1;}
 .reel-play svg{
   width:clamp(28px,3.4vw,42px); height:clamp(28px,3.4vw,42px); padding:12px; color:var(--ink);
   background:var(--brass); border-radius:50%;
   box-shadow:0 10px 24px -8px rgba(0,0,0,0.6);
+  transition:transform .3s ease;
 }
+.reel-play:hover svg{transform:scale(1.08);}
 .reel-tag{
   display:block; padding:9px 10px;
   font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;
@@ -387,9 +387,9 @@ nav.mainnav a.active::after{width:100%;}
 
 @media(max-width:640px){
   .hero{padding:110px 0 30px;}
-  .reel-card{width:44vw;}
+  .reel-card{width:50vw;}
   .hero-stats{grid-template-columns:1fr; gap:22px; padding:36px 0;}
-  .stat{padding-right:0;}
+  .stat{padding-right:0; text-align:center;}
 }
 </style>
 
@@ -398,8 +398,8 @@ nav.mainnav a.active::after{width:100%;}
   <div class="wrap sobre-grid">
     <div class="sobre-images reveal">
       <div class="sobre-photos">
-        <div class="img-a"><img src="" alt="Fachada Unidade Integração Plaza Barbearia" loading="lazy" decoding="async" width="700" height="600"></div>
-        <div class="img-b"><img src="" alt="Fachada Unidade Villarejo Plaza Barbearia" loading="lazy" decoding="async" width="600" height="500"></div>
+        <div class="img-a"><img src="assets/UNIDADES/1.jpeg" alt="Fachada Unidade Integração Plaza Barbearia" loading="lazy" decoding="async" width="700" height="600"></div>
+        <div class="img-b"><img src="assets/UNIDADES/2.jpeg" alt="Fachada Unidade Villarejo Plaza Barbearia" loading="lazy" decoding="async" width="600" height="500"></div>
       </div>
       <div class="img-badge serif">Desde<br><b>2015</b></div>
     </div>
@@ -462,48 +462,54 @@ nav.mainnav a.active::after{width:100%;}
       </div>
       <p class="sec-head-sub reveal">Sua melhor versão começa aqui — do corte clássico aos cuidados completos de pele e barba.</p>
     </div>
+  </div>
 
-    <div class="serv-grid reveal-stagger">
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Corte Adulto" width="56" height="56"></div>
-        <h3>Corte Adulto</h3><p>Estilos modernos e clássicos para adultos.</p>
+  <div class="wrap">
+    <div class="scroll-carousel serv-carousel reveal">
+      <div class="scroll-track" id="servTrack">
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Corte Adulto.png" alt="Corte Adulto" width="56" height="56"></div>
+          <h3>Corte Adulto</h3><p>Estilos modernos e clássicos para adultos.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Corte infantil.png" alt="Corte Infantil" width="56" height="56"></div>
+          <h3>Corte Infantil</h3><p>Atendimento especial para os pequenos.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Barba tradicional.png" alt="Barba Tradicional" width="56" height="56"></div>
+          <h3>Barba Tradicional</h3><p>Barba feita com técnica e cuidado profissional.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Quimica capilar.png" alt="Química Capilar" width="56" height="56"></div>
+          <h3>Química Capilar</h3><p>Transforme seu visual com nossos tratamentos químicos.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Manicure.png" alt="Manicure e Pedicure" width="56" height="56"></div>
+          <h3>Manicure e Pedicure</h3><p>Cuidados completos para mãos e pés.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Barboterapia.png" alt="Barboterapia" width="56" height="56"></div>
+          <h3>Barboterapia</h3><p>Tratamento completo para barba e relaxamento.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Limpeza de pele.png" alt="Limpeza de Pele" width="56" height="56"></div>
+          <h3>Limpeza de Pele</h3><p>Tratamento completo para limpeza e rejuvenescimento.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Epilação de nariz.png" alt="Epilação de Nariz e Orelha" width="56" height="56"></div>
+          <h3>Epilação de Nariz e Orelha</h3><p>Remoção de pelos indesejados com cuidado.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Sombracelha.png" alt="Sobrancelha" width="56" height="56"></div>
+          <h3>Sobrancelha</h3><p>Sobrancelhas bem definidas e alinhadas.</p>
+        </div>
+        <div class="serv-card">
+          <div class="serv-img"><img src="assets/serviços/Escova e hidratação.png" alt="Hidratação e Escova" width="56" height="56"></div>
+          <h3>Hidratação e Escova</h3><p>Hidratação profunda e finalização impecável.</p>
+        </div>
       </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Corte Infantil" width="56" height="56"></div>
-        <h3>Corte Infantil</h3><p>Atendimento especial para os pequenos.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Barba Tradicional" width="56" height="56"></div>
-        <h3>Barba Tradicional</h3><p>Barba feita com técnica e cuidado profissional.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Química Capilar" width="56" height="56"></div>
-        <h3>Química Capilar</h3><p>Transforme seu visual com nossos tratamentos químicos.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Manicure e Pedicure" width="56" height="56"></div>
-        <h3>Manicure e Pedicure</h3><p>Cuidados completos para mãos e pés.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Barboterapia" width="56" height="56"></div>
-        <h3>Barboterapia</h3><p>Tratamento completo para barba e relaxamento.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Limpeza de Pele" width="56" height="56"></div>
-        <h3>Limpeza de Pele</h3><p>Tratamento completo para limpeza e rejuvenescimento.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Epilação de Nariz e Orelha" width="56" height="56"></div>
-        <h3>Epilação de Nariz e Orelha</h3><p>Remoção de pelos indesejados com cuidado.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Sobrancelha" width="56" height="56"></div>
-        <h3>Sobrancelha</h3><p>Sobrancelhas bem definidas e alinhadas.</p>
-      </div>
-      <div class="serv-card">
-        <div class="serv-img"><img src="" alt="Hidratação e Escova" width="56" height="56"></div>
-        <h3>Hidratação e Escova</h3><p>Hidratação profunda e finalização impecável.</p>
-      </div>
+      <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
 
     <a href="https://wa.me/5574988261298?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn btn-brass serv-cta reveal">Agendar um serviço</a>
@@ -511,13 +517,27 @@ nav.mainnav a.active::after{width:100%;}
 </section>
 
 <style>
-.servicos{background:var(--ink); color:var(--ivory); padding:140px 0;}
-.sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:64px; flex-wrap:wrap;}
+.servicos{background:var(--ink); color:var(--ivory); padding:140px 0; overflow:hidden;}
+.sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:56px; flex-wrap:wrap;}
 .sec-head .sec-title{margin-bottom:0;}
 .sec-head-sub{max-width:340px; color:var(--bone); font-size:15px; line-height:1.7; padding-bottom:6px;}
 
-.serv-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--line-on-dark); border:1px solid var(--line-on-dark);}
+/* ---- Carrossel genérico por scroll-snap ---- */
+.scroll-carousel{position:relative;}
+.scroll-track{
+  display:flex; gap:1px;
+  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  cursor:grab; user-select:none;
+  background:var(--line-on-dark); border:1px solid var(--line-on-dark); border-radius:6px;
+  scrollbar-width:none;
+}
+.scroll-track::-webkit-scrollbar{display:none;}
+.scroll-track.dragging{cursor:grabbing; scroll-behavior:auto;}
+
 .serv-card{
+  flex:0 0 auto; width:clamp(190px,22vw,232px);
+  scroll-snap-align:start;
   background:var(--ink); padding:26px 22px 30px;
   transition:background .5s ease;
   position:relative;
@@ -533,10 +553,9 @@ nav.mainnav a.active::after{width:100%;}
   transition:width .5s var(--ease);
 }
 .serv-card:hover::after{width:30px;}
-.serv-cta{margin-top:56px; display:inline-flex;}
+.serv-cta{margin-top:44px; display:inline-flex;}
 
-@media(max-width:1080px){.serv-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:640px){.serv-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.serv-card{width:64vw;}}
 </style>
 
 <!-- ================= ESPAÇO ================= -->
@@ -547,21 +566,21 @@ nav.mainnav a.active::after{width:100%;}
     <p class="sobre-text reveal">Conheça o ambiente moderno e confortável da Plaza Barbearia.</p>
   </div>
 
-  <div class="carousel espaco-carousel reveal" data-autoplay="5000">
-    <div class="carousel-track">
-      <div class="carousel-slide"><img src="" alt="Recepção Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Sala de espera Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src=" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
-      <div class="carousel-slide"><img src="" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="1000" height="500"></div>
+  <div class="wrap">
+    <div class="scroll-carousel espaco-carousel reveal">
+      <div class="scroll-track" id="espacoTrack">
+        <div class="espaco-card"><img src="assets/ambiente/12.png" alt="Recepção Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/11.png" alt="Sala de espera Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/13.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/14.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/15.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/16.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/17.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+        <div class="espaco-card"><img src="assets/ambiente/12.png" alt="Ambiente interno Plaza Barbearia" loading="lazy" decoding="async" width="800" height="1000"></div>
+      </div>
+      <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
-    <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
-    <div class="car-dots"></div>
   </div>
 </section>
 
@@ -597,14 +616,33 @@ nav.mainnav a.active::after{width:100%;}
 .car-dots button{width:7px; height:7px; border-radius:50%; background:var(--line-on-light); transition:background .3s ease, width .3s ease;}
 .car-dots button.active{background:var(--brass); width:22px; border-radius:4px;}
 
-@media(max-width:700px){
-  .carousel-track{aspect-ratio:4/5;}
-  .car-btn{width:38px; height:38px;}
-  .car-btn.prev{left:8px;} .car-btn.next{right:8px;}
+/* Carrossel do "Nosso Espaço": 3 fotos verticais (retrato) visíveis por vez */
+.espaco-carousel{max-width:1000px; margin:0 auto; padding:0 4px;}
+.espaco-carousel .scroll-track{
+  background:none; border:none; border-radius:0;
+  gap:20px; scroll-snap-type:x mandatory;
+}
+.espaco-card{
+  flex:0 0 auto;
+  width:calc((100% - 40px)/3);
+  aspect-ratio:3/4;
+  border-radius:6px; overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  scroll-snap-align:start;
+  background:var(--ink-2);
+}
+.espaco-card img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease);}
+.espaco-card:hover img{transform:scale(1.06);}
+
+@media(max-width:900px){
+  .espaco-card{width:calc((100% - 20px)/2);}
+}
+@media(max-width:600px){
+  .espaco-card{width:74vw;}
 }
 </style>
 
-<!-- ================= EQUIPE ================= -->
+<!-- ================= EQUIPE ================= 
 <section id="equipe" class="equipe">
   <div class="wrap">
     <p class="eyebrow reveal center">Nossa equipe</p>
@@ -613,38 +651,43 @@ nav.mainnav a.active::after{width:100%;}
   </div>
 
   <div class="wrap">
-    <div class="team-grid reveal-stagger">
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">CF</span></div>
-        <h3 class="serif">Ciro Fraga</h3><p>Fundador</p>
+    <div class="scroll-carousel team-carousel reveal">
+      <div class="scroll-track" id="teamTrack">
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">CF</span></div>
+          <h3 class="serif">Ciro Fraga</h3><p>Fundador</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">AF</span></div>
+          <h3 class="serif">Andreia Fraga</h3><p>Gerente</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">CR</span></div>
+          <h3 class="serif">Cleiton Rodrigues</h3><p>Barbeiro</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">DA</span></div>
+          <h3 class="serif">Diego Almeida</h3><p>Barbeiro Sênior</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">RS</span></div>
+          <h3 class="serif">Rodrigo Silva</h3><p>Barbeiro</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">FC</span></div>
+          <h3 class="serif">Fabiana Costa</h3><p>Manicure</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span class="serif">JP</span></div>
+          <h3 class="serif">Juliana Pereira</h3><p>Esteticista</p>
+        </div>
       </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">AF</span></div>
-        <h3 class="serif">Andreia Fraga</h3><p>Gerente</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">CR</span></div>
-        <h3 class="serif">Cleiton Rodrigues</h3><p>Barbeiro</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">DA</span></div>
-        <h3 class="serif">Diego Almeida</h3><p>Barbeiro Sênior</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">RS</span></div>
-        <h3 class="serif">Rodrigo Silva</h3><p>Barbeiro</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">FC</span></div>
-        <h3 class="serif">Fabiana Costa</h3><p>Manicure</p>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><span class="serif">JP</span></div>
-        <h3 class="serif">Juliana Pereira</h3><p>Esteticista</p>
-      </div>
+      <button class="car-btn prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="car-btn next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
 </section>
+-->
 
 <!-- ================= DEPOIMENTOS ================= -->
 <section id="depoimentos" class="depoimentos">
@@ -663,13 +706,13 @@ nav.mainnav a.active::after{width:100%;}
           <div class="dep-grid">
             <div class="dep-card">
               <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.4 7 4 9.4 4 12.5S6.4 18 9.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Zm9 0c-3.1 0-5.5 2.4-5.5 5.5S15.4 18 18.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Z"/></svg>
-              <p>Sou cliente da Barbearia Plaza há algum tempo e posso dizer com tranquilidade: é um lugar onde o atendimento faz a diferença. Sempre sou bem recebido por toda a equipe, com profissionalismo, simpatia e atenção aos detalhes. Indico de olhos fechados para quem busca um atendimento de alto nível.</p>
-              <span class="dep-name">Jailton Monteiro</span>
+              <p>Ótima experiência, muito bem atendido excelentes profissionais !! Indico demais!</p>
+              <span class="dep-name">Charles Uchoa</span>
             </div>
             <div class="dep-card">
               <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.4 7 4 9.4 4 12.5S6.4 18 9.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Zm9 0c-3.1 0-5.5 2.4-5.5 5.5S15.4 18 18.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Z"/></svg>
-              <p>Atendimento ótimo e atencioso, corte profissional e artístico! Deixo minha indicação 👌</p>
-              <span class="dep-name">Werneston de Souza Passos</span>
+              <p>Melhor barbearia de Petrolina</p>
+              <span class="dep-name">Luiz Henrique Carvalho</span>
             </div>
           </div>
         </div>
@@ -677,14 +720,15 @@ nav.mainnav a.active::after{width:100%;}
           <div class="dep-grid">
             <div class="dep-card">
               <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.4 7 4 9.4 4 12.5S6.4 18 9.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Zm9 0c-3.1 0-5.5 2.4-5.5 5.5S15.4 18 18.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Z"/></svg>
-              <p>Ambiente impecável e profissionais muito atenciosos. Saio sempre satisfeito, é o meu lugar de confiança em Petrolina.</p>
-              <span class="dep-name">Cliente Plaza</span>
+              <p>Melhor lugar que já fui disparado</p>
+              <span class="dep-name">Arthur Leywin</span>
             </div>
             <div class="dep-card">
               <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 7C6.4 7 4 9.4 4 12.5S6.4 18 9.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Zm9 0c-3.1 0-5.5 2.4-5.5 5.5S15.4 18 18.5 18c.4 0 .8 0 1.1-.1-.6 1.6-2 2.9-4 3.4l.6 1.7c3.6-.9 6.3-3.9 6.3-8V12c0-2.8-1.8-5-4-5Z"/></svg>
-              <p>Equipe muito qualificada, ambiente sofisticado e pontualidade nos horários. Recomendo a todos que buscam qualidade.</p>
-              <span class="dep-name">Cliente Plaza</span>
+              <p>Excelente atendimento</p>
+              <span class="dep-name">Jhon Ferreira</span>
             </div>
+            
           </div>
         </div>
       </div>
@@ -705,13 +749,16 @@ p.center{max-width:520px;}
 .equipe .eyebrow::before{display:none;}
 .equipe .sec-title{max-width:600px; margin-left:auto; margin-right:auto;}
 
-.team-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
-  max-width:980px; margin:56px auto 0;
+.team-carousel{max-width:980px; margin:56px auto 0;}
+.team-carousel .scroll-track{
+  background:none; border:none; border-radius:0; gap:22px;
+  padding:6px 4px 14px; scroll-snap-type:x proximity;
+  justify-content:flex-start;
 }
 .team-card{
-  display:flex; flex-direction:column; align-items:center; gap:6px;
-  padding:40px 30px; border:1px solid var(--line-on-dark); border-radius:8px;
+  flex:0 0 auto; width:238px; scroll-snap-align:start;
+  display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center;
+  padding:40px 26px; border:1px solid var(--line-on-dark); border-radius:8px;
   transition:border-color .4s ease, transform .4s var(--ease);
 }
 .team-card:hover{border-color:var(--brass); transform:translateY(-4px);}
@@ -724,12 +771,8 @@ p.center{max-width:520px;}
 .team-card h3{font-size:20px; font-weight:500; color:var(--brass-light); margin-bottom:2px;}
 .team-card p{font-size:13px; color:var(--bone-dim); letter-spacing:.04em;}
 
-@media(max-width:860px){
-  .team-grid{grid-template-columns:repeat(2,1fr); max-width:600px;}
-}
 @media(max-width:520px){
-  .team-grid{grid-template-columns:1fr; max-width:340px; gap:20px;}
-  .team-card{padding:32px 24px;}
+  .team-card{width:72vw; padding:32px 22px;}
 }
 
 .depoimentos{background:var(--ink-2); padding:110px 0 130px;}
@@ -758,7 +801,7 @@ p.center{max-width:520px;}
   </div>
   <div class="wrap founder-grid">
     <div class="founder-photo reveal">
-      <div class="founder-photo-inner"><span class="serif">CF</span></div>
+      <div class="founder-photo-inner"><img src="assets/ciro.jpeg" alt=""></div>
     </div>
     <div class="founder-copy reveal">
       <p class="eyebrow">Nosso fundador</p>
@@ -805,8 +848,17 @@ p.center{max-width:520px;}
   background:var(--ink); border:2px solid var(--brass);
   display:flex; align-items:center; justify-content:center;
   box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  flex-shrink:0;
 }
 .founder-photo-inner span{font-size:52px; color:var(--brass-light);}
+.founder-photo-inner img{
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  border-radius:50%;
+  display:block;
+}
+.founder-photo{display:flex; justify-content:center;}
 .founder-copy blockquote{
   font-size:clamp(24px,2.8vw,36px); font-weight:400; font-style:italic; line-height:1.35;
   color:var(--ink); max-width:640px; margin:18px 0 26px;
@@ -839,11 +891,8 @@ p.center{max-width:520px;}
 
   <div class="wrap loc-grid reveal-stagger">
     <div class="loc-card">
-      <div class="loc-map" data-map-src="https://www.google.com/maps?q=-9.389634,-40.502684&amp;z=16&amp;output=embed" data-map-title="Mapa Unidade Integração">
-        <button type="button" class="map-load-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <span>Carregar mapa</span>
-        </button>
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps?q=-9.389634,-40.502684&amp;z=16&amp;output=embed" title="Mapa Unidade Integração" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="loc-info">
         <h3 class="serif">Unidade 1 — Integração</h3>
@@ -857,11 +906,8 @@ p.center{max-width:520px;}
     </div>
 
     <div class="loc-card">
-      <div class="loc-map" data-map-src="https://www.google.com/maps?q=Av.+Cardoso+de+S%C3%A1,+1155,+Petrolina+-+PE&amp;z=16&amp;output=embed" data-map-title="Mapa Unidade Villarejo">
-        <button type="button" class="map-load-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <span>Carregar mapa</span>
-        </button>
+      <div class="loc-map">
+        <iframe src="https://www.google.com/maps?q=Av.+Cardoso+de+S%C3%A1,+1155,+Petrolina+-+PE&amp;z=16&amp;output=embed" title="Mapa Unidade Villarejo" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="loc-info">
         <h3 class="serif">Unidade 2 — Villarejo (Orla)</h3>
@@ -881,12 +927,8 @@ p.center{max-width:520px;}
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a href="#inicio" class="brand">
-        <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 2C34 2 12 8 4 12v46c0 34 24 52 46 60 22-8 46-26 46-60V12C88 8 66 2 50 2Z" stroke="var(--ivory)" stroke-width="2.5"/>
-          <ellipse cx="50" cy="34" rx="14" ry="9" fill="var(--ivory)"/>
-          <path d="M34 34c2-10 8-16 16-16s14 6 16 16" fill="var(--ivory)"/>
-          <path d="M32 62c2-6 8-10 18-10s16 4 18 10c1 8-4 14-8 20-3 4-6 6-10 6s-7-2-10-6c-4-6-9-12-8-20Z" fill="var(--ivory)"/>
-        </svg>
+        <!-- LOGO: mesmo arquivo da logo usada no header -->
+        <img class="brand-logo" src="assets/logo.png" alt="Plaza Barbearia" width="44" height="44" onerror="this.style.opacity=0">
         <span class="brand-text"><b>Plaza</b><span>BARBEARIA</span></span>
       </a>
       <p>Mais que uma barbearia, uma experiência inesquecível.</p>
@@ -928,16 +970,7 @@ p.center{max-width:520px;}
 .loc-card{border:1px solid var(--line-on-light); border-radius:6px; overflow:hidden; background:#fff; transition:transform .5s var(--ease), box-shadow .5s var(--ease);}
 .loc-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg);}
 .loc-map{aspect-ratio:16/9; filter:grayscale(0.35) contrast(1.05); background:var(--ivory-dim);}
-.loc-map iframe{width:100%; height:100%; border:0;}
-.map-load-btn{
-  width:100%; height:100%;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
-  background:var(--ivory-dim); color:var(--ink);
-  font-size:12.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  transition:background .3s ease;
-}
-.map-load-btn svg{width:30px; height:30px; color:var(--brass);}
-.map-load-btn:hover{background:var(--bone);}
+.loc-map iframe{width:100%; height:100%; border:0; display:block;}
 .loc-info{padding:30px 30px 34px;}
 .loc-info h3{font-size:20px; font-weight:500; margin-bottom:10px;}
 .loc-info p{font-size:14px; color:#5a554c; line-height:1.6; margin-bottom:4px;}
@@ -962,26 +995,105 @@ p.center{max-width:520px;}
 
 <!-- ================= AJUSTES DE RESPONSIVIDADE MOBILE ================= -->
 <style>
-@media(max-width:640px){
+/* Trava qualquer overflow horizontal criado por elementos absolutos (setas de carrossel, crachá, brasão) */
+html, body{max-width:100%; overflow-x:hidden;}
+
+@media(max-width:960px){
+  .founder-grid{gap:34px;}
+}
+
+@media(max-width:768px){
+  /* ---- Ritmo vertical mais enxuto em tablets/celulares ---- */
   .sobre, .servicos, .espaco, .equipe, .depoimentos, .founder, .social, .localizacao{
-    padding-top:80px; padding-bottom:80px;
+    padding-top:90px; padding-bottom:90px;
   }
-  .sec-head{margin-bottom:40px;}
+  .hero{padding-top:118px;}
+
+  /* ---- Centralização geral do conteúdo no mobile ---- */
+  .sobre-grid{text-align:center; justify-items:center;}
+  .sobre-copy{display:flex; flex-direction:column; align-items:center;}
+  .sobre-text{max-width:480px;}
+  .sobre-copy .eyebrow{justify-content:center;}
+  .sobre-copy .eyebrow::before{display:none;}
+  .sobre-images{display:flex; flex-direction:column; align-items:center; width:100%;}
+  .sobre-photos{width:100%; max-width:460px;}
+
+  .sec-head{flex-direction:column; align-items:center; text-align:center; gap:18px; margin-bottom:40px;}
+  .sec-head-sub{max-width:460px; margin:0 auto;}
+  .servicos .eyebrow, .espaco .eyebrow{justify-content:center;}
+  .servicos .eyebrow::before, .espaco .eyebrow::before{display:none;}
+  .espaco .wrap > .eyebrow, .espaco .wrap > .sec-title, .espaco .wrap > .sobre-text{text-align:center;}
+  .espaco .sobre-text{margin-left:auto; margin-right:auto;}
+  .serv-cta{display:flex; margin-left:auto; margin-right:auto; justify-content:center; width:fit-content;}
+
+  .founder-grid{grid-template-columns:1fr; text-align:center; justify-items:center; gap:28px;}
+  .founder-photo{width:100%; justify-content:center;}
+  .founder-copy{display:flex; flex-direction:column; align-items:center;}
+  .founder-copy .eyebrow{justify-content:center;}
+  .founder-copy .eyebrow::before{display:none;}
+  .founder-copy blockquote{margin:14px 0 20px;}
+  .founder-photo-inner{width:150px; height:150px;}
+
+  .dep-head{flex-direction:column; align-items:center; text-align:center; gap:22px;}
+  .dep-head .eyebrow{justify-content:center;}
+  .dep-head .eyebrow::before{display:none;}
+  .dep-card{padding:30px 24px; min-height:auto; text-align:left;}
+
+  .social-wrap{flex-direction:column; text-align:center; gap:26px;}
+  .social-wrap .eyebrow{justify-content:center;}
+  .social-wrap .eyebrow::before{display:none;}
+  .social-links{justify-content:center;}
+
+  .localizacao .wrap > .eyebrow{justify-content:center;}
+  .localizacao .wrap > .eyebrow::before{display:none;}
+  .localizacao .wrap > .sec-title{text-align:center;}
+  .loc-info{text-align:center;}
+  .loc-actions{justify-content:center;}
+
+  .footer-grid{grid-template-columns:1fr; text-align:center; gap:44px;}
+  .footer-brand{display:flex; flex-direction:column; align-items:center;}
+  .footer-brand .brand{justify-content:center;}
+  .footer-brand p{max-width:320px; margin-left:auto; margin-right:auto;}
+  .footer-col{align-items:center;}
+  .footer-bottom{justify-content:center; text-align:center; flex-direction:column; gap:12px;}
+
+  /* ---- Carrosséis: setas somem, o arraste por toque assume ---- */
+  .scroll-carousel .car-btn, .carousel .car-btn{display:none;}
+  .dep-carousel{padding:0;}
+}
+
+@media(max-width:640px){
   .founder-photo-inner{width:130px; height:130px;}
   .founder-photo-inner span{font-size:36px;}
-  .founder-copy blockquote{margin:14px 0 20px;}
   .team-card{padding:32px 24px;}
   .team-photo{width:96px; height:96px;}
-  .dep-card{padding:30px 24px; min-height:auto;}
-  .social-wrap{gap:24px;}
   .social-link{padding:13px 20px; font-size:12px;}
+
+  /* Imagens e mídias ocupando 100% do card sem cortes indevidos */
+  .img-a, .img-b, .espaco-card, .serv-card, .team-card{width:100%; max-width:100%;}
+  .sobre-photos{flex-direction:row;}
 }
+
+@media(max-width:520px){
+  .hero-title{font-size:clamp(28px,7vw,36px);}
+  .hero-sub{font-size:12.5px;}
+  .btn{padding:14px 22px; font-size:12px;}
+  .sec-title{font-size:clamp(24px,6.4vw,32px);}
+  .founder{padding:110px 0;}
+  .founder-crest{width:380px;}
+}
+
 @media(max-width:420px){
   .hero-reels{gap:10px;}
-  .reel-card{width:42vw;}
+  .reel-card{width:48vw;}
   .hero-actions .btn, .loc-actions .btn, .header-actions .btn-brass{padding:14px 20px; font-size:12px;}
   .founder-photo-inner{width:110px; height:110px;}
   .team-card{padding:26px 16px;}
+  .brand-logo{width:30px; height:30px;}
+  .brand-text b{font-size:16px;}
+  .hero-logo-wrap{width:56px;}
+  .social-link{width:100%; justify-content:center;}
+  .social-links{width:100%; flex-direction:column;}
 }
 </style>
 
@@ -1081,6 +1193,55 @@ p.center{max-width:520px;}
     });
   }
 
+  /* ---------- Hero reel videos (play/pause com alternância de ícone e exclusão mútua) ---------- */
+  (function(){
+    const ICON_PLAY = 'M8 5v14l11-7z';
+    const ICON_PAUSE = 'M7 5h4v14H7zM13 5h4v14h-4z';
+    const frames = Array.from(document.querySelectorAll('.reel-frame'));
+    const players = frames.map(frame => {
+      const video = frame.querySelector('.reel-video');
+      const playBtn = frame.querySelector('.reel-play');
+      const iconPath = playBtn ? playBtn.querySelector('svg path') : null;
+      return {video, playBtn, iconPath};
+    }).filter(p => p.video && p.playBtn);
+
+    function setIcon(p, playing){
+      if(p.iconPath) p.iconPath.setAttribute('d', playing ? ICON_PAUSE : ICON_PLAY);
+      p.playBtn.classList.toggle('playing', playing);
+      p.playBtn.setAttribute('aria-label', playing ? 'Pausar vídeo' : 'Reproduzir vídeo');
+    }
+
+    function pauseOthers(except){
+      players.forEach(p => {
+        if(p.video !== except && !p.video.paused){
+          p.video.pause();
+          setIcon(p, false);
+        }
+      });
+    }
+
+    players.forEach(p => {
+      // Autoplay mudo assim que possível (prévia silenciosa em loop)
+      p.video.muted = true;
+      const tryAutoplay = () => p.video.play().then(() => setIcon(p, true)).catch(() => setIcon(p, false));
+      p.video.addEventListener('loadeddata', tryAutoplay, {once:true});
+      tryAutoplay();
+
+      p.video.addEventListener('play', () => setIcon(p, true));
+      p.video.addEventListener('pause', () => setIcon(p, false));
+
+      p.playBtn.addEventListener('click', () => {
+        if(p.video.paused){
+          pauseOthers(p.video);
+          p.video.muted = false;
+          p.video.play();
+        } else {
+          p.video.pause();
+        }
+      });
+    });
+  })();
+
   /* ---------- Carousel factory ---------- */
   function makeCarousel(root){
     const track = root.querySelector('.carousel-track');
@@ -1135,19 +1296,46 @@ p.center{max-width:520px;}
   }
   document.querySelectorAll('.carousel').forEach(makeCarousel);
 
-  /* ---------- Mapas sob demanda (evita carregar o Google Maps de cara) ---------- */
-  document.querySelectorAll('.map-load-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const holder = btn.parentElement;
-      const iframe = document.createElement('iframe');
-      iframe.src = holder.dataset.mapSrc;
-      iframe.title = holder.dataset.mapTitle;
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      holder.innerHTML = '';
-      holder.appendChild(iframe);
-    });
-  });
+  /* ---------- Scroll-snap carousel factory (Serviços / Equipe) ---------- */
+  function makeScrollCarousel(root){
+    const track = root.querySelector('.scroll-track');
+    const prev = root.querySelector('.car-btn.prev');
+    const next = root.querySelector('.car-btn.next');
+    if(!track) return;
+
+    function step(){
+      const card = track.children[0];
+      if(!card) return track.clientWidth * 0.8;
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || 0);
+      return card.getBoundingClientRect().width + gap;
+    }
+    next && next.addEventListener('click', () => track.scrollBy({left: step(), behavior:'smooth'}));
+    prev && prev.addEventListener('click', () => track.scrollBy({left: -step(), behavior:'smooth'}));
+
+    // Arrastar com o mouse (drag-to-scroll) em telas com hover
+    if(window.matchMedia('(hover:hover)').matches){
+      let isDown = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('pointerdown', (e) => {
+        isDown = true; moved = false;
+        startX = e.clientX; startScroll = track.scrollLeft;
+        track.classList.add('dragging');
+        track.setPointerCapture(e.pointerId);
+      });
+      track.addEventListener('pointermove', (e) => {
+        if(!isDown) return;
+        const dx = e.clientX - startX;
+        if(Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      const release = () => { isDown = false; track.classList.remove('dragging'); };
+      track.addEventListener('pointerup', release);
+      track.addEventListener('pointercancel', release);
+      // Evita que o "arraste" dispare cliques indesejados em cards/links
+      track.addEventListener('click', (e) => { if(moved){ e.preventDefault(); e.stopPropagation(); } }, true);
+    }
+  }
+  document.querySelectorAll('.scroll-carousel').forEach(makeScrollCarousel);
 
 })();
 </script>
